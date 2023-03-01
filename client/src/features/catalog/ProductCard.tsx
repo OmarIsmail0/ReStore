@@ -8,7 +8,7 @@ import {
   CardHeader,
   Avatar,
 } from "@mui/material";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Product } from "../../app/models/product";
 
 interface Props {
