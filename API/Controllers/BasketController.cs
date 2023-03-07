@@ -26,14 +26,14 @@ namespace API.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<BasketDto>> AddItemToBasket(int porductId, int quantity)
+        public async Task<ActionResult<BasketDto>> AddItemToBasket(int productId, int quantity)
         {
             // get basket || create basket
             var basket = await RetrieveBasket();
             if (basket == null) basket = CreateBasket();
 
             // get the product
-            var product = await _context.Products.FindAsync(porductId);
+            var product = await _context.Products.FindAsync(productId);
             if (product == null) return NotFound();
 
             // add item
@@ -49,14 +49,14 @@ namespace API.Controllers
 
 
         [HttpDelete]
-        public async Task<ActionResult> RemoveBasketItem(int porductId, int quantity)
+        public async Task<ActionResult> RemoveBasketItem(int productId, int quantity)
         {
             // get basket
             var basket = await RetrieveBasket();
-            if (basket == null) return NotFound();
+            if (basket == null) return BadRequest(new ProblemDetails { Title = "Product Not Found" });
 
             // remove ite or reduce quntity
-            basket.RemoveItem(porductId, quantity);
+            basket.RemoveItem(productId, quantity);
 
             // save changes
             var results = await _context.SaveChangesAsync() > 0;
