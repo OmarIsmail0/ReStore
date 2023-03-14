@@ -56,7 +56,7 @@ export const ProductCard = ({ product }: Props) => {
         </CardContent>
         <CardActions>
           <LoadingButton
-            loading={status.includes("pendingAddItem" + product.id)}
+            loading={status === "pendingAddItem" + product.id}
             onClick={() =>
               dispatch(addBasketItemAsync({ productId: product.id }))
             }
