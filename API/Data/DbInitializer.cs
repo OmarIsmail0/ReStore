@@ -11,10 +11,10 @@ namespace API.Data
             {
                 var user = new User
                 {
-                    UserName = "Omar",
+                    UserName = "omar",
                     Email = "Omar@test.com",
                 };
-                await userManager.CreateAsync(user, "Pa$$w0ord");
+                await userManager.CreateAsync(user, "1346_Omar");
                 await userManager.AddToRoleAsync(user, "Member");
 
                 var admin = new User
@@ -23,7 +23,7 @@ namespace API.Data
                     Email = "admin@test.com"
                 };
 
-                await userManager.CreateAsync(admin, "Pa$$w0ord");
+                await userManager.CreateAsync(admin, "Pa$$w0rd");
                 await userManager.AddToRolesAsync(admin, new[] { "Member", "Admin" });
             }
             if (context.Products.Any()) return;
