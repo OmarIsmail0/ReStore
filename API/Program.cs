@@ -49,7 +49,9 @@ builder.Services.AddDbContext<StoreContext>(opt =>
     // opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));  
     // install RefreshMicrosoft.EntityFrameworkCore.SqlServer by Microsoft
     // appsettings.Dev "DefaultConnection": "Server=localhost;Database=stroe;Trusted_Connection=True;TrustServerCertificate=True"
-
+    // cmd 
+    // dotnet ef migrations add InitialCreate -o Data/Migrations
+    // dotnet ef database update
 });
 
 builder.Services.AddCors();
