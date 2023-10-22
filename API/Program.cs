@@ -46,6 +46,10 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddDbContext<StoreContext>(opt =>
 {
     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+    // opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));  
+    // install RefreshMicrosoft.EntityFrameworkCore.SqlServer by Microsoft
+    // appsettings.Dev "DefaultConnection": "Server=localhost;Database=stroe;Trusted_Connection=True;TrustServerCertificate=True"
+
 });
 
 builder.Services.AddCors();
